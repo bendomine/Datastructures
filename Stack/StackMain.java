@@ -27,16 +27,10 @@ public class StackMain {
 		pass += tests[0];
 		fail += tests[1];
 
-		s.pop();
-
 
 		System.out.println("\n+=============================+");
 		System.out.println("Passed " + pass + "/" + (pass + fail) + " tests.");
 		System.out.println("+=============================+\n");
-
-		while (true){
-			System.out.println(s.pop());
-		}
 
 	}
 	static int[] ExceptionTest(Stack s) throws RuntimeException{
