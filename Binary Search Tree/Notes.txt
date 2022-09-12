@@ -1,0 +1,4 @@
+Successor: Take a node. If it has a right child, the successor is the minimum of the subtree spawning from the right child of this node.
+	If it doesn't have a right child, take the parent and do the following (recursion):
+		If the previous node is the left child of this node, this is the successor.
+			Otherwise, take the parent of this node and repeat.
