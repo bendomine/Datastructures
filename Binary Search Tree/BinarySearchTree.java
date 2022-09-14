@@ -82,14 +82,18 @@ public class BinarySearchTree {
 		return insert(value, head);
 	}
 
-	void output(){
-		System.out.println(head.getValue());
-		if (head.getLeftChild() != null) System.out.print(head.getLeftChild().getValue());
-		else System.out.print("X");
-		System.out.print("  ");
-		if (head.getRightChild() != null) System.out.print(head.getRightChild().getValue());
-		else System.out.print("X");
-
+	/**
+	 * Finds the minimum value in the search tree.
+	 * This is done by starting at the head, and taking the left child of each node repeatedly until hitting null.
+	 * The value of this node is the minimum.
+	 * @return the node with the least value in the search tree
+	 */
+	Node getMinimum(){
+		Node n = head;
+		while (n.getLeftChild() != null){
+			n = n.getLeftChild();
+		}
+		return n;
 	}
 
 	/**

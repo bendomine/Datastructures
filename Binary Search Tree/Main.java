@@ -56,8 +56,8 @@ public class Main {
 		 * |      Insert      |
 		 * +==================+
 		 */
+		// test by making an example tree
 		bst = new BinarySearchTree(3);
-		// create basic left child
 		bst.insert(2);
 		if (bst.getHead().getLeftChild().getValue() == 2) pass ++;
 		bst.insert(4);
@@ -75,8 +75,27 @@ public class Main {
 		bst.insert(4);
 		if (bst.getHead().getRightChild().getLeftChild().getValue() == 4) pass ++;
 		total += 8;
-		
+		// test with no head node
+		bst = new BinarySearchTree();
+		bst.insert(5);
+		if (bst.getHead().getValue() == 5) pass ++;
+		total ++;
 
+		/*
+		 * +==================+
+		 * |      Test 4      |
+		 * |      Minimum     |
+		 * +==================+
+		 */
+		bst = new BinarySearchTree();
+		bst.insert(3);
+		bst.insert(2);
+		bst.insert(4);
+		bst.insert(1);
+		bst.insert(5);
+		bst.insert(9);
+		if(bst.getMinimum().getValue() == 1) pass ++;
+		total ++;
 
 
 		System.out.println("\n");
