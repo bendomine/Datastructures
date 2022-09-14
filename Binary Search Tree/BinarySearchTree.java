@@ -83,17 +83,66 @@ public class BinarySearchTree {
 	}
 
 	/**
-	 * Finds the minimum value in the search tree.
-	 * This is done by starting at the head, and taking the left child of each node repeatedly until hitting null.
+	 * Finds the minimum value in the specified subtree.
+	 * This is done by starting at the node specified, and taking the left child of each node repeatedly until hitting null.
 	 * The value of this node is the minimum.
-	 * @return the node with the least value in the search tree
+	 * @param node the head of the subtree to find the minimum of
+	 * @return the node with the least value in the subtree
 	 */
-	Node getMinimum(){
-		Node n = head;
+	Node getMinimum(Node node){
+		Node n = node;
 		while (n.getLeftChild() != null){
 			n = n.getLeftChild();
 		}
 		return n;
+	}
+
+	/**
+	 * Finds the minimum value in the search tree.
+	 * This just calls the getMinimum(Node) function with the tree's head node as the parameter.
+	 * @return the minimum node in the search tree
+	 */
+	Node getMinimum(){
+		return getMinimum(head);
+	}
+
+	/**
+	 * Given a node, returns the node with the next highest value.
+	 * The methodology is: if a node has a right subtree, the successor is the minimum of that subtree.
+	 * Otherwise, the successor is the first ancestor of that node where that node is descended from the ancestor's left child.
+	 * @param node the node to find the successor of
+	 * @return the node with the next highest value
+	 */
+	Node getSuccessor(Node node){
+		if (node.getRightChild() != null){
+			return getMinimum(node.getRightChild());
+		}
+		else{
+			Node n = node;
+			while (n.getValue() > n.getParent().getValue()){
+				n = n.getParent();
+			}
+			return n.getParent();
+		}
+	}
+
+	/**
+	 * Utility function for printing out the search tree
+	 * Created by Dr. Kuszmaul
+	 * @param node the node to start printing from
+	 */
+	void printWalk(Node node){
+		if (node.getLeftChild() != null) printWalk(node.getLeftChild());
+		System.out.println(" " + node.getValue());
+		if (node.getRightChild() != null) printWalk(node.getRightChild());
+	}
+
+	/**
+	 * Utility function for printing out the search tree
+	 * Created by Dr. Kuszmaul
+	 */
+	void printWalk(){
+		printWalk(head);
 	}
 
 	/**

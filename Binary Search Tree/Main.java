@@ -96,6 +96,45 @@ public class Main {
 		bst.insert(9);
 		if(bst.getMinimum().getValue() == 1) pass ++;
 		total ++;
+		if (bst.getMinimum(bst.getHead().getRightChild()).getValue() == 4) pass ++;
+		total ++;
+
+		/*
+		 * +==================+
+		 * |      Test 5      |
+		 * |     Successor    |
+		 * +==================+
+		 */
+		bst = new BinarySearchTree();
+		bst.insert(3);
+		bst.insert(1);
+		bst.insert(4);
+		bst.insert(1);
+		bst.insert(5);
+		bst.insert(9);
+		bst.insert(2);
+		bst.insert(7);
+		Node sTest = bst.getMinimum();
+		if (sTest.getValue() == 1) pass ++;
+		sTest = bst.getSuccessor(sTest);
+		if (sTest.getValue() == 1) pass ++;
+		sTest = bst.getSuccessor(sTest);
+		if (sTest.getValue() == 2) pass ++;
+		sTest = bst.getSuccessor(sTest);
+		if (sTest.getValue() == 3) pass ++;
+		sTest = bst.getSuccessor(sTest);
+		if (sTest.getValue() == 4) pass ++;
+		sTest = bst.getSuccessor(sTest);
+		if (sTest.getValue() == 5) pass ++;
+		sTest = bst.getSuccessor(sTest);
+		if (sTest.getValue() == 7) pass ++;
+		sTest = bst.getSuccessor(sTest);
+		if (sTest.getValue() == 9) pass ++;
+		total += 8;
+
+		bst.printWalk();
+		
+
 
 
 		System.out.println("\n");
