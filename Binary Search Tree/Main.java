@@ -132,9 +132,6 @@ public class Main {
 		if (sTest.getValue() == 9) pass ++;
 		total += 8;
 
-		bst.printWalk();
-		
-
 
 
 		System.out.println("\n");
