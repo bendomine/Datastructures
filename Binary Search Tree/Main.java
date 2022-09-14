@@ -132,6 +132,24 @@ public class Main {
 		if (sTest.getValue() == 9) pass ++;
 		total += 8;
 
+		/*
+		 * +==================+
+		 * |      Test 6      |
+		 * |      Scrub       |
+		 * +==================+
+		 */
+		bst = new BinarySearchTree();
+		bst.insert(3);
+		bst.insert(2);
+		bst.insert(1);
+		bst.insert(3);
+		bst.scrub(bst.getHead().getLeftChild().getLeftChild());
+		if (bst.getHead().getLeftChild().getLeftChild() == null) pass ++;
+		bst.scrub(bst.getHead().getLeftChild().getRightChild());
+		if (bst.getHead().getLeftChild().getRightChild() == null) pass ++;
+		bst.scrub(bst.getHead());
+		if (bst.getHead() == null) pass ++;
+		total += 3;
 
 
 		System.out.println("\n");

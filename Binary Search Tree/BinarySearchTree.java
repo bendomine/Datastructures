@@ -146,6 +146,18 @@ public class BinarySearchTree {
 	}
 
 	/**
+	 * Removes a child (leaf) node by removing its parent's reference to it
+	 * @param node the node to be scrubbed
+	 */
+	void scrub(Node node){
+		if (node.getParent() != null){
+			if (node.getValue() <= node.getParent().getValue()) node.getParent().setLeftChild(null);
+			else node.getParent().setRightChild(null);
+		}
+		if (node.equals(head)) head = null;
+	}
+
+	/**
 	 * 
 	 * @return this search tree's root node
 	 */
