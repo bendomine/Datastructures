@@ -1,8 +1,8 @@
 public class Node {
-	Node parent;
-	Node leftChild;
-	Node rightChild;
-	int value;
+	private Node parent;
+	private Node leftChild;
+	private Node rightChild;
+	private int value;
 	
 	/*
 	 * Default constructor, sets all references to null
