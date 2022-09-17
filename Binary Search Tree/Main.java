@@ -151,6 +151,88 @@ public class Main {
 		if (bst.getHead() == null) pass ++;
 		total += 3;
 
+		/*
+		 * +==================+
+		 * |      Test 7      |
+		 * |      Splice      |
+		 * +==================+
+		 */
+		bst = new BinarySearchTree();
+		bst.insert(3);
+		bst.insert(2);
+		bst.insert(1);
+		bst.splice(bst.getHead().getLeftChild());
+		if (bst.getHead().getLeftChild().getLeftChild() == null) pass ++;
+		if (bst.getHead().getLeftChild().getValue() == 1) pass ++;
+		bst.splice(bst.getHead());
+		if (bst.getHead().getValue() == 1) pass ++;
+		if (bst.getHead().getLeftChild() == null) pass ++;
+		total += 4;
+		bst.insert(2);
+		bst.insert(3);
+		bst.splice(bst.getHead().getRightChild());
+		if (bst.getHead().getRightChild().getRightChild() == null) pass ++;
+		if (bst.getHead().getRightChild().getValue() == 3) pass ++;
+		total += 2;
+		bst.insert(3);
+		bst.insert(4);
+		bst.splice(bst.getHead());
+		if (bst.getHead().getValue() == 3) pass ++;
+		if (bst.getHead().getLeftChild().getValue() == 3) pass ++;
+		if (bst.getHead().getRightChild().getValue() == 4) pass ++;
+		total += 3;
+
+		/*
+		 * +==================+
+		 * |      Test 8      |
+		 * |      Rotate      |
+		 * +==================+
+		 */
+		bst = new BinarySearchTree();
+		bst.insert(3);
+		bst.insert(1);
+		bst.insert(4);
+		bst.rotate(bst.getHead());
+		if (bst.getHead().getValue() == 4) pass ++;
+		if (bst.getHead().getRightChild() == null) pass ++;
+		if (bst.getHead().getLeftChild().getValue() == 1) pass ++;
+		total += 3;
+		bst.insert(2);
+		bst.insert(0);
+		bst.rotate(bst.getHead().getLeftChild());
+		if (bst.getHead().getLeftChild().getValue() == 2) pass ++;
+		if (bst.getHead().getLeftChild().getRightChild() == null) pass ++;
+		if (bst.getHead().getLeftChild().getLeftChild().getValue() == 0) pass ++;
+		total += 3;
+
+		/*
+		 * +==================+
+		 * |      Test 9      |
+		 * |      Delete      |
+		 * +==================+
+		 */
+		bst = new BinarySearchTree();
+		bst.insert(5);
+		bst.insert(3);
+		bst.insert(1);
+		bst.insert(4);
+		bst.delete(bst.getHead());
+		if (bst.getHead().getValue() == 3) pass ++;
+		if (bst.getHead().getLeftChild().getValue() == 1) pass ++;
+		if (bst.getHead().getRightChild().getValue() == 4) pass ++;
+		total += 3;
+		bst.rotate(bst.getHead());
+		if (bst.getHead().getValue() == 4) pass ++;
+		if (bst.getHead().getRightChild() == null) pass ++;
+		if (bst.getHead().getLeftChild().getValue() == 1) pass ++;
+		total += 3;
+		bst.delete(bst.getHead().getLeftChild());
+		if (bst.getHead().getValue() == 4) pass ++;
+		if (bst.getHead().getLeftChild() == null) pass ++;
+		if (bst.getHead().getRightChild() == null) pass ++;
+		total += 3;
+
+
 
 		System.out.println("\n");
 		System.out.println("+============================+");

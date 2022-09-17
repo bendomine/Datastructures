@@ -158,6 +158,50 @@ public class BinarySearchTree {
 	}
 
 	/**
+	 * Removes a node with only one child by assuming its child's value and children
+	 * @param node the node to be spliced
+	 */
+	void splice(Node node){
+		if (node.getLeftChild() != null){
+			node.setValue(node.getLeftChild().getValue());
+			node.setRightChild(node.getLeftChild().getRightChild());
+			node.setLeftChild(node.getLeftChild().getLeftChild());
+		}
+		else if (node.getRightChild() != null){
+			node.setValue(node.getRightChild().getValue());
+			node.setLeftChild(node.getRightChild().getLeftChild());
+			node.setRightChild(node.getRightChild().getRightChild());
+		}
+		if (node.getLeftChild() != null) node.getLeftChild().setParent(node);
+		if (node.getRightChild() != null) node.getRightChild().setParent(node);
+	}
+
+	/**
+	 * Deletes a node with two children by assuming the value of its successor and then deleting its successor.
+	 * Successor is deleted by using scrub, as it can never have any children.
+	 * @param node the node to be rotated out
+	 */
+	void rotate(Node node){
+		Node n = getSuccessor(node);
+		int nVal = n.getValue();
+		scrub(n);
+		node.setValue(nVal);
+	}
+	
+	/**
+	 * Deletes a node.
+	 * Uses either scrub (no children), splice (one child), or rotate (two children).
+	 * @param node the node to be deleted
+	 */
+	void delete(Node node){
+		if (node.getLeftChild() == null && node.getRightChild() == null) scrub(node);
+		else if (node.getLeftChild() == null || node.getRightChild() == null) splice(node);
+		else{
+			rotate(node);
+		}
+	}
+
+	/**
 	 * 
 	 * @return this search tree's root node
 	 */
