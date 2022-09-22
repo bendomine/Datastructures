@@ -1,0 +1,16 @@
+Hash Tables
+
+Imagine the following table:
+
+Cow     Side
+------------
+3         0
+1         1
+4         0
+...       ...
+
+This is a great way to store data. However, what happens if the id for a cow takes up too much space?
+The solution for this issue is to 'hash' the id. A hash function should be able to map any of these ids to a somewhat randomly generated smaller number.
+
+What is a hash function?
+It is a function h(int key) which returns another, smaller, integer which maps specifically to that key.
