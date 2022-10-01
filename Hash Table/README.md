@@ -39,6 +39,8 @@ Methods
 		delete: deletes the element at the given key.
 
 		getSize: gets the size of the table.
-		
+
 		setSize: sets the size of the table (also clears it).
-		
+
+
+Important note: the author of this code is not Irish.
