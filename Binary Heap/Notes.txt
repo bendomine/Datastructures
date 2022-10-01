@@ -1,8 +1,6 @@
 Binary Heaps
 A binary heap is stored, similarly to a binary search tree, in a fancy triangle. There's a root node, with two children, each with their own two children, etc. However, when inserting, you always add elements in order.
 
-Binary heaps can be represented as arrays: just count (root is 1, left child is 2, right child is 3, left child's left child is 4, etc). The index of any element's left child is the element's index divided by 2, and the right child index is just 1 + the left child.
+Binary heaps can be represented as arrays: just count (root is 1, left child is 2, right child is 3, left child's left child is 4, etc). The index of any element's left child is the element's index multiplied by 2, and the right child index is just 1 + the left child.
 
 To delete, simply replace the root node with the last-index node. Then bubble the new root node down.
-
-SHADOW HEAPS
