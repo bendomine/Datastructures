@@ -1,0 +1,21 @@
+Every graph contains its edges and values.
+Each edge contains its pairings with vertices, and each value has the things we would like to identify/measure.
+
+class Vertex{
+	int id;
+	public Vertex (int _id) {id = _id;}
+}
+
+class Edge{
+	// Directed graph, each vertex is one-way
+	Vertex start;
+	Vertex end;
+	int weight;
+	public Edge (Vertex v1, Vertex v2, int _weight){
+		start = v1;
+		end = v2;
+		weight = _weight;
+	}
+}
+
+Let's use an example where each vertex represents a city and each node represents a node.
