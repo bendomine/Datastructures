@@ -17,7 +17,7 @@ public class Edge {
 	 * @return a string displaying the node this edge starts from and connects to
 	 */
 	public String toString(){
-		return from + " -> " + to;
+		return from + "->" + to;
 	}
 
 	/**
