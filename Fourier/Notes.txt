@@ -1,0 +1,21 @@
+Notes on complex number:
+A complex number has a real and imaginary component which are added together to form a coordinate in the complex plane. The complex plane is like an xy plane but the y dimension is actually the i dimension.
+
+Complex numbers are also represented by their polar coordinate forms. There is the angle and the magnitude. The x and y coordinates are therefore rcos(theta) and rsin(theta) respectively.
+
+Raising a complex number to an integer power is done by taking the polar coordinate representation of the complex number. Then, multiply the angle by the integer and exponentiate the magnitude by the ingeger.
+
+Notes on roots of unity:
+The roots of unity can be defined by the following formula: e^(i2kpi/8) where k is a point around the unit circle (at 0 radians, k is 0). The 8 is the number of points around the circle, in this case there are 8 points. You want the number of points in the circle, or k, to be equal to the number of terms in the input polynomial. For a fourier transform, take the polynomial representing the formula, and evaulate it at each of these roots of unity. Each evaluation gets one element of the fourier transform.
+
+FAST Fourier transform (speeeeeeeeeeeeeeeeeeeeeeed):
+Normal fourier transforms require O(n) steps. FAST fourier transforms require O(log(n)) steps. 
+Given the polynomial:
+ax^7 + bx^6 + cx^5 + dx^4 + ex^3 + fx^2 + gx + h
+create two smaller polynomials, one with the even terms, and one with the odd terms. Also, divide the exponents of each by two (rounding down).
+So:
+v(x) = bx^3 + dx^2 + fx + h
+and
+u(x) = ax^3 + cx^2 + ex + g
+
+note that v(x^2) + u(x^2) * x is the original polynomial
