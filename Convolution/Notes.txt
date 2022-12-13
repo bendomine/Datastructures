@@ -1,0 +1,40 @@
+Take a large grid of numbers and a convolution kernel.
+Example:
+1 1 1 1 1
+0 1 1 1 1
+0 0 1 1 1
+0 0 0 1 1
+0 0 0 0 1
+
+The convolution kernel is the following:
+ 0 0 0
+-1 1 0
+ 0 0 0
+
+Overlay the convolution kernel over every possible 3x3 grid on the original image. Multiply the overlaid numbers and add them all 
+together. Take the result and place it in a new grid, with its position equal to the center of the convolution kernel.
+
+So for this example, overlaying the convolution kernel in the top left, we get:
+1 1 1
+0 1 1
+0 0 1
+for the large grid, and
+ 0 0 0
+-1 1 0
+ 0 0 0
+for the convolution kernel.
+
+Doing the math results in 1 * 0 + 1 * 0 + 1 * 0 + -1 * 0 + 1 * 1 + 1 * 0 + 0 * 0 + 0 * 0 + 0 * 0 = 1
+Doing this for every possible point results in the following grid:
+1 0 0 0 0
+0 1 0 0 0
+0 0 1 0 0
+0 0 0 1 0
+0 0 0 0 1
+
+Note that Kuszmaul did something weird for the boundary. Not really sure what.
+
+One dimensional convolution is basically the same thing. Just multiply two functions together and find the integral of the 
+resulting function. One function is the actual function, and the other function is the convolution function. Notably,
+there's a difference. The convolution function is flipped around the y axis and shifted a bit. So the actual function is:
+F(u) = integral from -inf to inf ( f(x) * g(u-x) dx )
