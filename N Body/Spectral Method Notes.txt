@@ -1,0 +1,10 @@
+Spectral Method to Compute Force Field of Eulerian Representations of the Evolution of Gravitational Systems
+(obviously)
+
+Gravity is a force which pulls all existing masses towards each other. The force is greater the closer it is.
+Write a method which takes a particle (with position and mass) and gives out a two dimensional array representing the force 
+field exerted by that particle.
+
+How the gravity field works: each force points directly towards the mass exerting it. It decreases by the square of the distance.
+If a point is at 1, 1 from the mass, it has the force sqrt(2)/2, -sqrt(2)/2. Doubling the distance would decrease the force
+by a factor of 4.

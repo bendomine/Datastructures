@@ -21,6 +21,7 @@ public class Complex{
 	}
 
 	public Complex divide(Complex o){
+		// don't worry about it, I'll fix this when I need to use it
 		return multiply(new Complex(1.0/o.getReal(), 1.0/o.getImaginary()));
 	}
 
