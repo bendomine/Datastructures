@@ -25,6 +25,15 @@ public class Complex{
 		return multiply(new Complex(1.0/o.getReal(), 1.0/o.getImaginary()));
 	}
 
+	public Complex exp(){
+		// Code yoinked from https://rosettacode.org/wiki/Fast_Fourier_transform but translated to Java by me
+		Complex out = new Complex(0, 0);
+		double expReal = Math.exp(_this);
+		out.setReal(expReal * Math.cos(imaginary));
+		out.setImaginary(expReal * Math.sin(imaginary));
+		return out;
+	}
+
 	
 
 	public double getReal() {
@@ -33,5 +42,11 @@ public class Complex{
 	
 	public double getImaginary(){
 		return imaginary;
+	}
+	public void setReal(double _real){
+		this._this = _real;
+	}
+	public void setImaginary(double _imaginary){
+		this.imaginary = _imaginary;
 	}
 }
