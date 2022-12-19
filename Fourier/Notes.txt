@@ -19,3 +19,14 @@ and
 u(x) = ax^3 + cx^2 + ex + g
 
 note that v(x^2) + u(x^2) * x is the original polynomial
+
+So anyway, take the initial fourier transform (say of 3, 1, 4, 1) and recursively do the fourier transform of the even terms and the odd terms.
+
+so FFT(3, 1, 4, 1)
+==> FFT(3, 4) and FFT(1, 1)
+
+==> FFT(3) and FFT(4) and FFT(1) and FFT(1)
+
+Once we are down to one term, we compute the discrete fourier transform. In other words, we evaluate this term at the roots of unity, except since we have only one term, the only root of unity is 1. So, the fourier transform of 3 is 3. Now we just need to recombine these terms. We have the fourier transform of a bunch of components which need to be put back together. 
+
+So how do we combine them? Take each most recent pair and create two numbers: one from adding them together, and one from subtracting them.
