@@ -70,10 +70,6 @@ public class Sorter{
 		}
 		return out;
 	}
-	// The fun recursive one! Divide the input in half, merge sort each side, and merge both arrays by iterating through
-	public int[] mergeSort(int[] input){
-		return input;
-	}
 
 	public static int[] heapify(int[] input){ // Converts the data into a max-heap
 		for (int i = input.length / 2 - 1; i >= 0; i--){
